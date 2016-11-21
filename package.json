@@ -1,13 +1,12 @@
 {
   "name": "dojo_exchange",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
-  "author": "Anthony Cho <antcho92@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^0.8.7",
@@ -15,5 +14,16 @@
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "mongoose": "^4.6.7"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antcho92/dojo_exchange.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antcho92/dojo_exchange/issues"
+  },
+  "homepage": "https://github.com/antcho92/dojo_exchange#readme",
+  "author": "Anthony Cho <antcho92@gmail.com>",
+  "description": ""
 }

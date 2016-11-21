@@ -3,7 +3,9 @@
   "description": "",
   "main": "server.js",
   "authors": [
-    "antcho92 <antcho92@gmail.com>"
+    "Anthony Cho <antcho92@gmail.com>",
+    "Evan Chen <evanyfc@gmail.com>",
+    "Steven Gum <steven.gum@gmail.com>"
   ],
   "license": "ISC",
   "homepage": "",
