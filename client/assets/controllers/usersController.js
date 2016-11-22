@@ -5,6 +5,8 @@ app.controller('usersController', ['$scope', 'usersFactory', '$location', functi
     console.log(this.newUser);
     uF.register(this.newUser, function() {
       self.newUser = '';
+    }, function(errors) {
+      self.errors = errors;
     });
   };
   this.login = function() {

@@ -1,8 +1,8 @@
 <div>
   <h2>Login</h2>
   <form ng-submit='uC.login()'>
-    <input type="text" ng-model='uC.userLogin.email' placeholder="Email">
-    <input type="text" ng-model='uC.userLogin.password' placeholder="password">
+    <input type="email" ng-model='uC.userLogin.email' placeholder="Email" required>
+    <input type="password" ng-model='uC.userLogin.password' placeholder="password" required>
     <input type="submit" value='Login'>
   </form>
 </div>
@@ -10,11 +10,16 @@
 <div>
   <h2>Register</h2>
   <form ng-submit='uC.register()'>
-    <input type="text" ng-model='uC.newUser.firstName' placeholder="First Name">
-    <input type="text" ng-model='uC.newUser.lastName' placeholder="Last Name">
-    <input type="text" ng-model='uC.newUser.email' placeholder="Email">
-    <input type="text" ng-model='uC.newUser.password' placeholder="Password">
-    <input type="text" ng-model='uC.newUser.confirm' placeholder="Confirm Password">
+    <p>{{uC.errors.firstName.message}}</p>
+    <input type="text" ng-model='uC.newUser.firstName' placeholder="First Name" >
+    <p>{{uC.errors.lastName.message}}</p>
+    <input type="text" ng-model='uC.newUser.lastName' placeholder="Last Name" required>
+    <p>{{uC.errors.email.message}}</p>
+    <input type="email" ng-model='uC.newUser.email' placeholder="Email" required>
+    <p>{{uC.errors.password.message}}</p>
+    <input type="password" ng-model='uC.newUser.password' placeholder="Password" required>
+    <p>{{uC.errors.confirm.message}}</p>
+    <input type="password" ng-model='uC.newUser.confirm' placeholder="Confirm Password" required>
     <input type="submit" name="name" value="Register">
   </form>
 </div>

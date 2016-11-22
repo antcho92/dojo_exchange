@@ -7,10 +7,20 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         console.log(res);
       });
     };
-    this.register = function(newUser, callback) {
+    this.register = function(newUser, callback, errCallback) {
       $http.post('/users', newUser).then(function(res) {
         console.log(res.data);
-        callback();
+        if (res.data.errmsg) {
+          errCallback({
+            email: {
+              message: 'Email has already been registered'
+            }
+          })
+        } else if (res.data.errors) {
+          errCallback(res.data.errors);
+        } else {
+          callback();
+        }
       });
     };
     this.login = function(userLogin, callback) {

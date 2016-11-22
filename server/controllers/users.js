@@ -50,8 +50,12 @@ module.exports = (function() {
     },
     logout: function(req, res) {
       console.log(req.session.user);
-      req.session.destroy();
-      res.redirect('/');
+      req.session.destroy(function(err) {
+        if (err) {
+          console.log(err);
+        }
+        res.redirect('/');
+      });
     },
     checkSess: function(req, res) {
       if (req.session.user) {
