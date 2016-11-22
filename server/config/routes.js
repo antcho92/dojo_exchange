@@ -7,5 +7,6 @@ module.exports = function(app) {
   app.post('/users/login', users.login);
   app.get('/users/logout', users.logout);
   app.get('/users/checkSess', users.checkSess);
-  app.post('/exchange', exchanges.create);
+  app.post('/exchanges', exchanges.create);
+  app.get('/exchanges', exchanges.index);
 }

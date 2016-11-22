@@ -1,4 +1,8 @@
 <h1>Dashboard</h1>
 <a href="/users/logout">Logout</a>
 <a href="#/exchange/new">Create an event</a>
-<a href=""></a>
+<div ng-controller='exchangeController as eC' >
+  <div class='exchanges' ng-repeat='exchange in eC.exchanges'>
+    <h4>{{exchange.name}}</h4>
+  </div>
+</div>

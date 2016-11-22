@@ -2,7 +2,10 @@ app.controller('exchangeController', ['$scope', 'exchangeFactory', function($sco
   var self = this;
   this.settings = [
     {id: 'setting1'}
-  ]
+  ];
+  function getExchanges(exchanges) {
+    self.exchanges = exchanges;
+  }
   // dynamically add settings input in form
   this.addSetting = function() {
     var newSettingNum = this.settings.length + 1;
@@ -11,5 +14,7 @@ app.controller('exchangeController', ['$scope', 'exchangeFactory', function($sco
   this.create = function() {
     this.newExchange.settings = this.settings;
     console.log(this.newExchange);
+    eF.create(this.newExchange);
   }
+  eF.index(getExchanges);
 }])

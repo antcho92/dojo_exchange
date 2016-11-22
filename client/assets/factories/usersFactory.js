@@ -40,7 +40,6 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         if (!data.data) {
           $location.url('/');
         } else {
-          console.log(data);
           callback(data);
           $location.url('/dashboard');
         }

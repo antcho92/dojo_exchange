@@ -32,7 +32,15 @@ module.exports = (function() {
       User.findOne({email: req.body.email}, function(err, user) {
         if (err) {
           res.json(err);
-        } else if (user) {
+        } else if (!user) {
+          res.json({
+            errors: {
+              login: {
+                message: 'Invalid username or password'
+              }
+            }
+          });
+        } else {
           if (user.validatePassword(req.body.password)) {
             req.session.user = user;
             req.session.save();
@@ -49,14 +57,6 @@ module.exports = (function() {
               }
             });
           }
-        } else {
-          res.json({
-            errors: {
-              login: {
-                message: 'Invalid username or password'
-              }
-            }
-          });
         }
       })
     },
