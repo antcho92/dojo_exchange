@@ -1,7 +1,31 @@
-<div>
-  <form class="" action="index.html" method="post">
-    <input type="text" ng-model='eC.newExchange.name' placeholder="Name of Exchange">
-    <input type="text" ng-model='eC.newExchange.theme' placeholder="theme of exchange">
-    <input type="date" ng-model='eC.newExchange.date_of_exchange'>  
-    <input type="date" ng-model='eC.newExchange.end_of_sign_up_date'>
+<div class='container-fluid'>
+  <div class='row'>
+    <form class='col-xs-8 col-xs-offset-2' ng-submit='eC.create()'>
+      <div class="form-group row">
+        <label for="exchangeName" class="col-form-label">Exchange Name</label>
+        <input class='form-control' type="text" id='exchangeName' ng-model='eC.newExchange.name' placeholder="Name of Exchange">
+      </div>
+      <div class='form-group row'>
+        <label for="exchangeTheme">Theme of Exchange</label>
+        <input class='form-control' type="text" ng-model='eC.newExchange.theme' placeholder="theme of exchange" id='exchangeTheme'>
+      </div>
+      <div class='form-group row'>
+        <label for="exchangeDate">Date of Exchange</label>
+        <input class='form-control' type="date" ng-model='eC.newExchange.date_of_exchange' placeholder="Date of Exchange" id='exchangeDate'>
+      </div>
+      <div class='form-group row'>
+        <label for="signupDate">End of Signup Date</label>
+        <input class='form-control' type="date" ng-model='eC.newExchange.end_of_sign_up_date' placeholder="End of Signup Date" id='signupDate'>
+      </div>
+      <div class='form-group row'>
+        <label for="maxPrice">Max Price</label>
+        <input class='form-control' type="number" ng-model='eC.newExchange.max_price' placeholder="max price" id='maxPrice'>
+      </div>
+      <div class='form-group row'>
+        <label for="minPrice">Min Price (optional)</label>
+        <input class='form-control' type="number" ng-model='eC.newExchange.min_price' placeholder="min price (optional)" id='minPrice'>
+      </div>
+      <button type="submit" class='btn btn-primary' name="button">Submit</button>
+    </form>
+  </div>
 </div>
