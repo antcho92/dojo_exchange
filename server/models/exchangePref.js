@@ -18,8 +18,8 @@ var exchangePrefSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  settings: {
+  settings: [{
     type: Object
-  }
+  }]
 })
 mongoose.model('ExchangePref', exchangePrefSchema);
