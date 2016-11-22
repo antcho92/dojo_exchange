@@ -35,6 +35,10 @@ var userSchema = new mongoose.Schema({
   exchangePrefs: [{
     type: Schema.Types.ObjectId,
     ref: 'ExchangePref'
+  }],
+  exchangesCreated: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Exchange'
   }]
 }, {
   timestamps: true

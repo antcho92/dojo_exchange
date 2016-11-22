@@ -1,6 +1,11 @@
 <div class='container-fluid'>
   <div class='row'>
-    <form class='col-xs-8 col-xs-offset-2' ng-submit='eC.create()'>
+    <div class='col-xs-6 col-xs-offset-3'>
+      <h1>Create a New Exchange!</h1>
+    </div>
+  </div>
+  <div class='row'>
+    <form class='col-xs-8 col-xs-offset-2'>
       <div class="form-group row">
         <label for="exchangeName" class="col-form-label">Exchange Name</label>
         <input class='form-control' type="text" id='exchangeName' ng-model='eC.newExchange.name' placeholder="Name of Exchange">
@@ -25,7 +30,13 @@
         <label for="minPrice">Min Price (optional)</label>
         <input class='form-control' type="number" ng-model='eC.newExchange.min_price' placeholder="min price (optional)" id='minPrice'>
       </div>
-      <button type="submit" class='btn btn-primary' name="button">Submit</button>
+      <div class='form-group row' ng-repeat='setting in eC.settings'>
+        <label for="{{setting.id}}">{{setting.id}} Option</label>
+        <input type="text" id='{{setting.id}}' class='form-control' placeholder="Optional setting title" ng-model='setting.title'>
+        <input class='form-control' type="text" id='{{setting.id}}' placeholder="Optional setting content" ng-model='setting.content'>
+        <button type='btn' class='btn btn-success' ng-click='eC.addSetting()' ng-show='$last'>Add Optional Parameter</button>
+      </div>
+      <button type="submit" class='btn btn-primary' name="button" ng-click='eC.create()'>Submit</button>
     </form>
   </div>
 </div>

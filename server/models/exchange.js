@@ -29,6 +29,10 @@ var exchangeSchema = new mongoose.Schema({
     type: Object,
     required: true
   },
+  creator: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   exchangePrefs: [{
     type: Schema.Types.ObjectId,
     ref: 'ExchangePref'
