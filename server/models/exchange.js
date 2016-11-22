@@ -33,7 +33,7 @@ var exchangeSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
-  settings: [{
+  exchangePrefs: [{
     type: Schema.Types.ObjectId,
     ref: 'ExchangePref'
   }]
