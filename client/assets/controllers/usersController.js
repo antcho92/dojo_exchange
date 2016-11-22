@@ -2,7 +2,6 @@ app.controller('usersController', ['$scope', 'usersFactory', '$location', functi
   console.log('users function loaded');
   var self = this;
   this.register = function() {
-    console.log(this.newUser);
     uF.register(this.newUser, function() {
       self.newUser = '';
     }, function(errors) {
@@ -16,5 +15,7 @@ app.controller('usersController', ['$scope', 'usersFactory', '$location', functi
       self.errors = errors;
     })
   };
-  uF.checkSess();
+  uF.checkSess(function(user) {
+    self.currUser = user;
+  });
 }]);

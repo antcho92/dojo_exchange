@@ -20,6 +20,7 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
           errCallback(res.data.errors);
         } else {
           callback();
+          $location.url('/dashboard')
         }
       });
     };
@@ -34,12 +35,13 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         }
       })
     };
-    this.checkSess =function() {
+    this.checkSess =function(callback) {
       $http.get('/users/checkSess').then(function(data) {
         if (!data.data) {
           $location.url('/');
         } else {
           console.log(data);
+          callback(data);
           $location.url('/dashboard');
         }
       })

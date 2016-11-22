@@ -13,5 +13,10 @@ app.config(function($routeProvider) {
       controller:'usersController',
       controllerAs: 'uC'
     })
+    .when('/exchange/new', {
+      templateUrl: 'partials/newExchange.html',
+      controller: 'exchangeController',
+      controllerAs: 'eC'
+    })
     .otherwise('/');
 })

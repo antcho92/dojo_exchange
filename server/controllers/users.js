@@ -21,6 +21,8 @@ module.exports = (function() {
         if (err) {
           res.json(err);
         } else {
+          req.session.user = newUser;
+          req.session.save();
           res.json(newUser);
         }
       })

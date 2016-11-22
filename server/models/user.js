@@ -28,6 +28,10 @@ var userSchema = new mongoose.Schema({
     required: [true, 'password is required'],
     minlength: [8, 'password must be at least 8 chars']
   },
+  admin: {
+    type: Boolean,
+    default: false
+  },
   exchangePrefs: [{
     type: Schema.Types.ObjectId,
     ref: 'ExchangePref'

@@ -10,16 +10,16 @@ var exchangePrefSchema = new mongoose.Schema({
     type: Schema.Types.ObjectId,
     ref: 'Exchange'
   },
-  interests: [{
-    type: String,
-    default: ""
-  }],
   gift_is_for: {
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
   gift_received: {
-    type: Boolean
+    type: Boolean,
+    default: false
+  },
+  settings: {
+    type: Object
   }
 })
 mongoose.model('ExchangePref', exchangePrefSchema);
