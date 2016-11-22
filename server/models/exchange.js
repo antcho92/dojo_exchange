@@ -6,9 +6,9 @@ var exchangeSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  participants : [{
+  exchangePrefs: [{
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'ExchangePref'
   }]
 }, {
   timestamps: true

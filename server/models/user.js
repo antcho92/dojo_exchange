@@ -28,9 +28,9 @@ var userSchema = new mongoose.Schema({
     required: [true, 'password is required'],
     minlength: [8, 'password must be at least 8 chars']
   },
-  exchanges: [{
+  exchangePrefs: [{
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'ExchangePref'
   }]
 }, {
   timestamps: true
