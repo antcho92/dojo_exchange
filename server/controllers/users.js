@@ -17,6 +17,7 @@ module.exports = (function() {
     create: function(req, res) {
       console.log('register request received');
       var userInstance = new User(req.body);
+      userInstance.password = userInstance.hashPassword(req.body.password);
       userInstance.save(function(err, newUser) {
         if (err) {
           res.json(err);
