@@ -35,16 +35,20 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         }
       })
     };
-    this.checkSess =function(callback) {
-      $http.get('/users/checkSess').then(function(data) {
-        if (!data.data) {
-          $location.url('/');
+    this.checkSess = function(callback) {
+      $http.get('/users/checkSess').then(function(res) {
+        if (!res.data) {
+          if ($location.url() !== '/') {
+            $location.url('/');
+          }
         } else {
-          callback(data);
-          $location.url('/dashboard');
+          callback(res.data);
+          if ($location.url() === '/') {
+            $location.url('/dashboard');
+          }
         }
-      })
-    }
+      });
+    };
   }
   console.log(new UsersFactory());
   return new UsersFactory();

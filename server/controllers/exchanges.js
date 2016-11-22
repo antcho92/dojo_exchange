@@ -30,6 +30,12 @@ module.exports = (function() {
           res.json(exchanges);
         }
       })
+    },
+    getExchange: function(req, res) {
+      Exchange.findOne({_id: req.params.exchangeId}, function(err, exchange) {
+        if (err) {console.log(err)}
+        res.json(exchange);
+      })
     }
   }
 })()

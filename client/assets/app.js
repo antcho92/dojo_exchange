@@ -10,11 +10,16 @@ app.config(function($routeProvider) {
     })
     .when('/dashboard', {
       templateUrl: 'partials/dashboard.html',
-      controller:'usersController',
-      controllerAs: 'uC'
+      controller:'dashboardController',
+      controllerAs: 'dC'
     })
     .when('/exchange/new', {
       templateUrl: 'partials/newExchange.html',
+      controller: 'exchangeController',
+      controllerAs: 'eC'
+    })
+    .when('/exchange/:exchangeId', {
+      templateUrl: 'partials/exchange.html',
       controller: 'exchangeController',
       controllerAs: 'eC'
     })

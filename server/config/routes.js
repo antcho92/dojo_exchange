@@ -9,4 +9,5 @@ module.exports = function(app) {
   app.get('/users/checkSess', users.checkSess);
   app.post('/exchanges', exchanges.create);
   app.get('/exchanges', exchanges.index);
+  app.get('/exchanges/:exchangeId', exchanges.getExchange);
 }
