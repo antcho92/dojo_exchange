@@ -18,7 +18,6 @@ module.exports = (function() {
       var userInstance = new User(req.body);
       userInstance.save(function(err, newUser) {
         if (err) {
-          console.log(err);
           res.json(err);
         } else {
           res.json(newUser);
@@ -30,9 +29,7 @@ module.exports = (function() {
       User.findOne({email: req.body.email}, function(err, user) {
         if (err) {
           res.json(err);
-        } else if (!user) {
-          res.json({errors: 'Invalid email and/or username'});
-        } else {
+        } else if (user) {
           if (user.validatePassword(req.body.password)) {
             req.session.user = user;
             req.session.save();
@@ -42,9 +39,21 @@ module.exports = (function() {
             });
           } else {
             res.json({
-              errors: 'Invalid email and/or username'
+              errors: {
+                login: {
+                  message: 'Invalid username or password'
+                }
+              }
             });
           }
+        } else {
+          res.json({
+            errors: {
+              login: {
+                message: 'Invalid username or password'
+              }
+            }
+          });
         }
       })
     },

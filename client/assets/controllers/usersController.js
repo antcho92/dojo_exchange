@@ -10,9 +10,10 @@ app.controller('usersController', ['$scope', 'usersFactory', '$location', functi
     });
   };
   this.login = function() {
-    console.log(this.userLogin);
     uF.login(this.userLogin, function() {
       self.userLogin = '';
+    }, function(errors) {
+      self.errors = errors;
     })
   };
   uF.checkSess();

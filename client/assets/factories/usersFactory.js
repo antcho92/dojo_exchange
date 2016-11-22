@@ -23,11 +23,15 @@ app.factory('usersFactory', ['$http', '$location', function($http, $location) {
         }
       });
     };
-    this.login = function(userLogin, callback) {
+    this.login = function(userLogin, callback, errCallback) {
       $http.post('/users/login', userLogin).then(function(res) {
-        console.log(res);
-        callback();
-        $location.url('/dashboard')
+        console.log(res.data);
+        if (res.data.errors) {
+          errCallback(res.data.errors);
+        } else {
+          callback();
+          $location.url('/dashboard')
+        }
       })
     };
     this.checkSess =function() {
