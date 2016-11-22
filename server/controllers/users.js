@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Exchange = mongoose.model('Exchange');
 
 module.exports = (function() {
   return {

@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
+var Schema = mongoose.Schema;
 
 var userSchema = new mongoose.Schema({
   firstName: {
@@ -26,7 +27,11 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'password is required'],
     minlength: [8, 'password must be at least 8 chars']
-  }
+  },
+  exchanges: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
 }, {
   timestamps: true
 });
