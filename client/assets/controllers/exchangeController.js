@@ -22,6 +22,6 @@ app.controller('exchangeController', ['$scope', 'exchangeFactory', '$routeParams
   }
   getExchange();
   this.join = function() {
-
+    console.log($routeParams.exchangeId)
   }
 }])

@@ -16,6 +16,9 @@ app.factory('exchangeFactory', ['$http', '$location', function($http, $location)
       $http.get(`exchanges/${exchangeId}`).then(function(res) {
         callback(res.data);
       })
+    };
+    this.join = function() {
+      
     }
   }
   return new ExchangeFactory();

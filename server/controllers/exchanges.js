@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var Exchange = mongoose.model('Exchange');
-var User = mongoose.model('User');
+var Exchange = mongoose.model('Exchange'),
+    User = mongoose.model('User'),
+    ExchangePref = mongoose.model('ExchangePref');
 
 module.exports = (function() {
   return {
@@ -35,6 +36,11 @@ module.exports = (function() {
       Exchange.findOne({_id: req.params.exchangeId}, function(err, exchange) {
         if (err) {console.log(err)}
         res.json(exchange);
+      })
+    },
+    joinExchange: function(req, res) {
+      Exchange.findOne({_id: req.params.exchangeId}, function(err, exchange) {
+        
       })
     }
   }

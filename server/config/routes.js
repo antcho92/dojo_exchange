@@ -10,4 +10,5 @@ module.exports = function(app) {
   app.post('/exchanges', exchanges.create);
   app.get('/exchanges', exchanges.index);
   app.get('/exchanges/:exchangeId', exchanges.getExchange);
+  app.post('/exchanges/:exchangeId', exchanges.joinExchange);
 }
