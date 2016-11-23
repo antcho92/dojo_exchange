@@ -1,15 +1,15 @@
 app.controller('exchangeController', ['$scope', 'exchangeFactory', '$routeParams', function($scope, eF, $routeParams) {
   var self = this;
-  this.settings = [
-    {id: 'setting1'}
+  this.customQuestions = [
+    {questionId: 1}
   ];
   // dynamically add settings input in form
-  this.addSetting = function() {
-    var newSettingNum = this.settings.length + 1;
-    this.settings.push({'id':'setting' + newSettingNum})
+  this.addQuestion = function() {
+    var newQuestionNum = this.customQuestions.length + 1;
+    this.customQuestions.push({'questionId': newQuestionNum})
   }
   this.create = function() {
-    this.newExchange.settings = this.settings;
+    this.newExchange.customQuestions = this.customQuestions;
     console.log(this.newExchange);
     eF.create(this.newExchange);
   }

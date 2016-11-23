@@ -25,9 +25,8 @@ var exchangeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  settings: {
+  customQuestions: {
     type: Object,
-    required: true
   },
   creator: {
     type: Schema.Types.ObjectId,
