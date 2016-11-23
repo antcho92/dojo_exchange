@@ -18,8 +18,8 @@ var exchangePrefSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  settings: [{
+  customQuestions: {
     type: Object
-  }]
+  }
 })
 mongoose.model('ExchangePref', exchangePrefSchema);
