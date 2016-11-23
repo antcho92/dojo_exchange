@@ -31,8 +31,8 @@
         <input class='form-control' type="number" ng-model='eC.newExchange.min_price' placeholder="min price (optional)" id='minPrice'>
       </div>
       <div class='form-group row' ng-repeat='question in eC.customQuestions'>
-        <label for="{{question.questionId}}">Custom Question {{question.questionId}} </label>
-        <input type="text" id='{{question.questionId}}' class='form-control' placeholder="Your custom question" ng-model='question.content'>
+        <label for="{{question.id}}">Custom Question {{question.id}} </label>
+        <input type="text" id='{{question.id}}' class='form-control' placeholder="Your custom question" ng-model='question.content'>
         <button type='btn' class='btn btn-success' ng-click='eC.addQuestion()' ng-show='$last'>Add Optional Parameter</button>
       </div>
       <button type="submit" class='btn btn-primary' name="button" ng-click='eC.create()'>Submit</button>
