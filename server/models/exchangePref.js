@@ -18,7 +18,7 @@ var exchangePrefSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
-  customQuestions: {
+  customAnswers: {
     type: Object
   }
 })

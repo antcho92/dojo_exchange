@@ -18,13 +18,12 @@
           <p>Exchange Related Questions</p>
           <div class='form-group row exchangeSetting' ng-repeat='question in eC.exchange.customQuestions'>
             <label for="{{question.id}}"> {{question.content}}</label>
-            <input class='form-control' type="text" placeholder='Your answer' id='{{question.id}}'>
+            <input class='form-control' type="text" placeholder='Your answer' id='{{question.id}}' required>
           </div>
         </div>
-        <button class='btn btn-primary' ng-click='eC.join()'>Join</button>
+        <button class='btn btn-success' ng-click='eC.join()'>Join</button>
       </form>
-
-      <a href="#/dashboard">Back</a>
+      <a href="#/dashboard" class='btn btn-primary'>Back</a>
     </div>
   </div>
 </div>

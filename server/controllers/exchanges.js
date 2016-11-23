@@ -38,10 +38,10 @@ module.exports = (function() {
         res.json(exchange);
       })
     },
-    joinExchange: function(req, res) {
-      Exchange.findOne({_id: req.params.exchangeId}, function(err, exchange) {
-        
-      })
-    }
+    // joinExchange: function(req, res) {
+    //   Exchange.findOne({_id: req.params.exchangeId}, function(err, exchange) {
+    //
+    //   })
+    // }
   }
 })()

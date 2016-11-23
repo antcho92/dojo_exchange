@@ -1,5 +1,6 @@
 var users = require('./../controllers/users.js'),
-    exchanges = require('./../controllers/exchanges.js')
+    exchanges = require('./../controllers/exchanges.js'),
+    exchangePrefs = require('./../controllers/exchangePrefs.js');
 
 module.exports = function(app) {
   app.get('/users', users.index);
@@ -10,5 +11,5 @@ module.exports = function(app) {
   app.post('/exchanges', exchanges.create);
   app.get('/exchanges', exchanges.index);
   app.get('/exchanges/:exchangeId', exchanges.getExchange);
-  app.post('/exchanges/:exchangeId', exchanges.joinExchange);
+  app.post('/exchangeprefs', exchangePrefs.create);
 }
