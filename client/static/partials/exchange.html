@@ -16,9 +16,9 @@
         <h3>Want to Join this Exchange?</h3>
         <div class="exchangeQuestions" ng-show='eC.exchange.customQuestions'>
           <p>Exchange Related Questions</p>
-          <div class='form-group row exchangeSetting' ng-repeat='question in eC.exchange.customQuestions'>
+          <div class='form-group row exchangeSetting' ng-repeat='question in eC.exchange.customQuestions track by id'>
             <label for="{{question.id}}"> {{question.content}}</label>
-            <input class='form-control' type="text" placeholder='Your answer' id='{{question.id}}' required>
+            <input class='form-control' type="text" placeholder='Your answer' id='{{question.id}}' required ng-model='question.answer'>
           </div>
         </div>
         <button class='btn btn-success' ng-click='eC.join()'>Join</button>

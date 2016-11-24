@@ -17,8 +17,8 @@ app.factory('exchangeFactory', ['$http', '$location', function($http, $location)
         callback(res.data);
       })
     };
-    this.join = function() {
-      
+    this.join = function(newExchangePref) {
+      console.log(newExchangePref);
     }
   }
   return new ExchangeFactory();

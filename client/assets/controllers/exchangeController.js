@@ -1,5 +1,8 @@
 app.controller('exchangeController', ['$scope', 'exchangeFactory', '$routeParams', function($scope, eF, $routeParams) {
   var self = this;
+  self.customQuestions = [
+    {id: 1}
+  ];
   // dynamically add settings input in form
   this.addQuestion = function() {
     var newQuestionNum = this.customQuestions.length + 1;
@@ -14,17 +17,15 @@ app.controller('exchangeController', ['$scope', 'exchangeFactory', '$routeParams
     if ($routeParams.exchangeId) {
       eF.getExchange($routeParams.exchangeId, function(exchange) {
         self.exchange = exchange;
-        self.customQuestions = [
-          {id: 1}
-        ];
       });
     }
   }
-  getExchange(function(answers) {
-    self.customAnswers = answers;
-  });
+  getExchange();
   this.join = function() {
-    console.log($routeParams.exchangeId);
-
+    var newExchangePref = {
+      customAnswers: this.exchange.customQuestions,
+      exchange: this.exchange._id
+    }
+    eF.join(newExchangePref);
   }
 }])
