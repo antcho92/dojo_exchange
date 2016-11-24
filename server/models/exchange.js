@@ -25,6 +25,11 @@ var exchangeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  // Check to see if users have been assigned a secret person yet
+  assigned: {
+    type: Boolean,
+    default: false,
+  },
   customQuestions: {
     type: Object,
   },

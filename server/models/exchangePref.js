@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var exchangePrefSchema = new mongoose.Schema({
   user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
   },
   exchange: {
     type: Schema.Types.ObjectId,

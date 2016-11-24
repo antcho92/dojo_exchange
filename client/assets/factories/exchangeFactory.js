@@ -13,12 +13,16 @@ app.factory('exchangeFactory', ['$http', '$location', function($http, $location)
       })
     }
     this.getExchange = function(exchangeId, callback) {
-      $http.get(`exchanges/${exchangeId}`).then(function(res) {
+      $http.get(`/exchanges/${exchangeId}`).then(function(res) {
+        console.log(res.data);
         callback(res.data);
       })
     };
-    this.join = function(newExchangePref) {
-      console.log(newExchangePref);
+    this.join = function(exchangePref) {
+      console.log(exchangePref);
+      $http.post('/exchangeprefs', exchangePref).then(function(res) {
+        console.log(res.data);
+      });
     }
   }
   return new ExchangeFactory();

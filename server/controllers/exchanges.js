@@ -33,10 +33,19 @@ module.exports = (function() {
       })
     },
     getExchange: function(req, res) {
-      Exchange.findOne({_id: req.params.exchangeId}, function(err, exchange) {
-        if (err) {console.log(err)}
-        res.json(exchange);
+      Exchange.findOne({_id: req.params.exchangeId})
+      .populate({
+        path: 'exchangePrefs',
+        model: 'ExchangePref',
+        populate: {
+          path: 'user',
+          model: 'User'
+        }
       })
+      .exec(function(err, exchange) {
+        if (err) {throw err}
+        res.json(exchange);
+      });
     },
     // joinExchange: function(req, res) {
     //   Exchange.findOne({_id: req.params.exchangeId}, function(err, exchange) {
