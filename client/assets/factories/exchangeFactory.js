@@ -23,7 +23,18 @@ app.factory('exchangeFactory', ['$http', '$location', function($http, $location)
       $http.post('/exchangeprefs', exchangePref).then(function(res) {
         console.log(res.data);
       });
-    }
+    };
+    this.checkSess = function(callback) {
+      $http.get('/users/checkSess').then(function(res) {
+        if (!res.data) {
+          if ($location.url() !== '/') {
+            $location.url('/');
+          }
+        } else {
+          callback(res.data);
+        }
+      });
+    };
   }
   return new ExchangeFactory();
 }])
